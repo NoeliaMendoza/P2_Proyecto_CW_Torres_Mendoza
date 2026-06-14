@@ -1,0 +1,138 @@
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 16px;
+    padding: 48px;
+    color: white;
+}
+
+.heroTexto h1 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.heroTexto p {
+    font-size: 1.1rem;
+    color: #a0a0b0;
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.heroBotones {
+    display: flex;
+    gap: 16px;
+}
+
+.btnPrimario {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btnPrimario:hover {
+    background: #c73652;
+}
+
+.btnSecundario {
+    background: transparent;
+    color: white;
+    border: 2px solid #e94560;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btnSecundario:hover {
+    background: #e94560;
+}
+
+.heroIcono {
+    font-size: 8rem;
+    opacity: 0.8;
+}
+
+/* Características */
+.caracteristicas h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    color: #1a1a2e;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card span {
+    font-size: 2.5rem;
+}
+
+.card h3 {
+    margin: 12px 0 8px;
+    color: #1a1a2e;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Categorías */
+.categorias h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    color: #1a1a2e;
+}
+
+.categoriasGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.categoriasGrid span {
+    padding: 8px 20px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+}

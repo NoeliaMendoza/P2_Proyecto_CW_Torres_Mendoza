@@ -1,0 +1,110 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 140px);
+    padding: 32px;
+    background: #f0f2f5;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 48px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.icono {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.card h2 {
+    color: #1a1a2e;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+}
+
+.card p {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.error {
+    background: #fff0f0;
+    color: #e94560;
+    border: 1px solid #ffc0c0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.campo input {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border 0.2s;
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #e94560;
+}
+
+.btn {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+
+.btn:hover {
+    background: #c73652;
+}
+
+.btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.enlace {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.enlace a {
+    color: #e94560;
+    text-decoration: none;
+    font-weight: 600;
+}

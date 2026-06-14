@@ -1,0 +1,43 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    cursor: pointer;
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+    min-width: 0;
+    overflow: hidden;
+    color: white;
+}
+
+.card:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.162);
+}
+
+.numero {
+    font-size: 0.5rem;
+    align-self: flex-start;
+}
+
+.simbolo {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 0.8;
+}
+
+.nombre {
+    font-size: 0.5rem;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.masa {
+    font-size: 0.5rem;
+}

@@ -1,0 +1,41 @@
+.contenedor {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 8px 16px;
+    gap: 10px;
+    transition: border 0.2s;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contenedor:focus-within {
+    border-color: #e94560;
+}
+
+.icono {
+    font-size: 1rem;
+}
+
+.input {
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    flex: 1;
+    background: transparent;
+}
+
+.limpiar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 0.9rem;
+    padding: 0;
+}
+
+.limpiar:hover {
+    color: #e94560;
+}

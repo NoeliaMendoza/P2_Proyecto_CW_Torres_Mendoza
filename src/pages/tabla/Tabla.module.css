@@ -1,0 +1,151 @@
+.contenedor {
+    padding: 24px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.encabezado h1 {
+    color: #1a1a2e;
+    font-size: 1.8rem;
+}
+
+.cargando {
+    text-align: center;
+    padding: 80px;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Detalle */
+.detalle {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.detallePrincipal {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.detalleSimboloBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f0f2f5;
+    border-radius: 10px;
+    padding: 16px 24px;
+    min-width: 100px;
+}
+
+.detalleNumero {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.detalleSimbolo {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1;
+}
+
+.detalleNombre {
+    font-size: 0.85rem;
+    color: #555;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.detalleInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 32px;
+}
+
+.detalleInfo p {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0;
+}
+
+.cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #f0f2f5;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #666;
+    transition: background 0.2s;
+}
+
+.cerrar:hover {
+    background: #e94560;
+    color: white;
+}
+
+/* Tabla */
+.tablaWrapper {
+    overflow-x: auto;
+}
+
+.grilla {
+    display: grid;
+    grid-template-columns: repeat(18, 52px);
+    grid-template-rows: repeat(9, 52px);
+    gap: 3px;
+    min-width: 980px;
+}
+
+/* Resultados búsqueda */
+.resultados {
+    margin-top: 8px;
+}
+
+.gridResultados {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 12px;
+}
+
+.cardResultado {
+    position: relative;
+}
+
+.btnFav {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.favActivo {
+    color: #e94560;
+}
+
+.sinResultados {
+    text-align: center;
+    color: #888;
+    padding: 40px;
+}

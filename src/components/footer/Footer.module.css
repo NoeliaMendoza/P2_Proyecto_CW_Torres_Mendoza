@@ -1,0 +1,57 @@
+.footer {
+    background-color: #1a1a2e;
+    color: #a0a0b0;
+    padding: 40px 32px 16px;
+    margin-top: auto;
+}
+
+.contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.seccion h3 {
+    color: #e94560;
+    margin-bottom: 8px;
+}
+
+.seccion h4 {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.seccion p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    max-width: 260px;
+}
+
+.seccion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.seccion ul a {
+    color: #a0a0b0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.seccion ul a:hover {
+    color: #e94560;
+}
+
+.copy {
+    border-top: 1px solid #2a2a4a;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,84 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 32px;
+    background-color: #1a1a2e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #e94560;
+}
+
+.logo span {
+    font-size: 0.75rem;
+    color: #a0a0b0;
+}
+
+.nav {
+    display: flex;
+    gap: 24px;
+}
+
+.nav a {
+    color: #c0c0d0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: #e94560;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.usuario span {
+    font-size: 0.9rem;
+    color: #a0a0b0;
+}
+
+.usuario a {
+    color: #c0c0d0;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.usuario button {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.usuario button:hover {
+    background: #c73652;
+}
+
+.btnRegistro {
+    background: #e94560;
+    color: white !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.btnRegistro:hover {
+    background: #c73652;
+}
