@@ -1,0 +1,235 @@
+.contenedor {
+    padding: 24px 32px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.encabezado h1 {
+    color: #1a1a2e;
+    font-size: 2.2rem;
+    margin: 0;
+    font-weight: 800;
+}
+
+.contador {
+    background: #eef8f9;
+    color: #097886;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 1px 3px rgba(9, 120, 134, 0.1);
+}
+
+.cargando {
+    text-align: center;
+    color: #64748b;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 48px;
+}
+
+/* Sin Sesión & Vacio */
+.sinSesion,
+.vacio {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 48px 32px;
+    text-align: center;
+    max-width: 460px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icono {
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.sinSesion h2,
+.vacio h2 {
+    color: #1a1a2e;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.sinSesion p,
+.vacio p {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.btnPrimario {
+    background: #097886;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+}
+
+.btnPrimario:hover {
+    background: #075f69;
+    transform: translateY(-1px);
+}
+
+.btnSecundario {
+    background: white;
+    color: #097886;
+    border: 2px solid #097886;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+}
+
+.btnSecundario:hover {
+    background: #eef8f9;
+}
+
+/* Lista de Historial */
+.lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s ease;
+    border: 1px solid #f1f5f9;
+}
+
+.item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-color: rgba(9, 120, 134, 0.2);
+}
+
+.itemSimbolo {
+    background: #097886;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(9, 120, 134, 0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    min-width: 0;
+}
+
+.itemNombre {
+    color: #1a1a2e;
+    font-weight: 700;
+    font-size: 1.05rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.itemMeta {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.itemFecha {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    background: #f8fafc;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid #f1f5f9;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .contenedor {
+        padding: 16px;
+    }
+
+    .encabezado h1 {
+        font-size: 1.8rem;
+    }
+
+    .item {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .itemFecha {
+        font-size: 0.75rem;
+        padding: 2px 8px;
+    }
+
+    .sinSesion,
+    .vacio {
+        padding: 32px 20px;
+        margin: 20px auto;
+    }
+}
