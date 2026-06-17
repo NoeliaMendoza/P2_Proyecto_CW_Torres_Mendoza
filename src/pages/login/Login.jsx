@@ -4,7 +4,7 @@ import { useChemical } from '../../context/ChemicalContext';
 import { login } from '../../services/chemistry-service';
 import styles from './Login.module.css';
 
-const Login = () => {
+export const Login = () => {
     const navigate = useNavigate();
     const { iniciarSesion } = useChemical();
     const [form, setForm] = useState({ email: '', contrasena: '' });
