@@ -1,7 +1,7 @@
-export { default as Inicio } from './inicio';
-export { default as Tabla } from './tabla';
-export { default as Calculadora } from './calculadora';
-export { default as Favoritos } from './favoritos';
-export { default as Historial } from './historial';
-export { default as Login } from './login';
-export { default as Registro } from './registro';
+export { Inicio } from './inicio';
+export { Tabla } from './tabla';
+export { Calculadora } from './calculadora';
+export { Favoritos } from './favoritos';
+export { Historial } from './historial';
+export { Login } from './login';
+export { Registro } from './registro';

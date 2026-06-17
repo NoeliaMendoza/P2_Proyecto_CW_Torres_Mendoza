@@ -7,17 +7,8 @@ const Footer = () => {
         <footer className={styles.footer}>
             <div className={styles.contenido}>
                 <div className={styles.seccion}>
-                    <h3>ChemReact</h3>
+                    <h3>ChemTable</h3>
                     <p>Plataforma interactiva para explorar la tabla periódica y realizar cálculos químicos.</p>
-                </div>
-
-                <div className={styles.seccion}>
-                    <h4>Navegación</h4>
-                    <ul>
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/tabla">Tabla Periódica</a></li>
-                        <li><a href="/calculadora">Calculadora</a></li>
-                    </ul>
                 </div>
 
                 <div className={styles.seccion}>
@@ -30,11 +21,10 @@ const Footer = () => {
             </div>
 
             <div className={styles.copy}>
-                <p>© {anioActual} ChemReact — Todos los derechos reservados</p>
-                <p>Desarrollado con React + Vite</p>
+                <p>© {anioActual} ChemTable - Todos los derechos reservados</p>
             </div>
         </footer>
     );
 };
 
-export default Footer;
+export { Footer };

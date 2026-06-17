@@ -1,1 +1,1 @@
-export { default } from './ElementCard';
+export { ElementCard } from './ElementCard';

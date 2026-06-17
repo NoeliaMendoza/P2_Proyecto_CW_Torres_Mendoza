@@ -1,1 +1,1 @@
-export { default } from './Inicio';
+export { Inicio } from './Inicio';

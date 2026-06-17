@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { SlChemistry } from 'react-icons/sl';
 import { registro } from '../../services/chemistry-service';
 import styles from './Registro.module.css';
 
@@ -44,72 +45,82 @@ const Registro = () => {
     return (
         <div className={styles.contenedor}>
             <div className={styles.card}>
-                <div className={styles.icono}></div>
-                <h2>Crear Cuenta</h2>
-                <p>Únete para guardar tus favoritos e historial</p>
 
-                {error && <div className={styles.error}>{error}</div>}
+                {/* Panel izquierdo — imagen + ícono */}
+                <div className={styles.panelImagen}>
+                    <SlChemistry className={styles.logoIcon} />
+                    <span className={styles.welcomeText}>Bienvenido</span>
+                </div>
 
-                <form onSubmit={handleSubmit} className={styles.form}>
-                    <div className={styles.campo}>
-                        <label>Nombre completo</label>
-                        <input
-                            type="text"
-                            name="nombre"
-                            placeholder="Tu nombre"
-                            value={form.nombre}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
+                {/* Panel derecho — formulario */}
+                <div className={styles.panelForm}>
+                    <h2 className={styles.titulo}>Crear cuenta</h2>
 
-                    <div className={styles.campo}>
-                        <label>Correo electrónico</label>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="ejemplo@correo.com"
-                            value={form.email}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
+                    {error && <div className={styles.error}>{error}</div>}
 
-                    <div className={styles.campo}>
-                        <label>Contraseña</label>
-                        <input
-                            type="password"
-                            name="contrasena"
-                            placeholder="Mínimo 6 caracteres"
-                            value={form.contrasena}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
+                    <form onSubmit={handleSubmit} className={styles.form}>
+                        <div className={styles.campo}>
+                            <label>Nombre completo</label>
+                            <input
+                                type="text"
+                                name="nombre"
+                                placeholder="Nombre completo"
+                                value={form.nombre}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
 
-                    <div className={styles.campo}>
-                        <label>Confirmar contraseña</label>
-                        <input
-                            type="password"
-                            name="confirmar"
-                            placeholder="Repite tu contraseña"
-                            value={form.confirmar}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
+                        <div className={styles.campo}>
+                            <label>Correo electrónico</label>
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Correo electrónico"
+                                value={form.email}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
 
-                    <button type="submit" className={styles.btn} disabled={cargando}>
-                        {cargando ? 'Creando cuenta...' : 'Crear Cuenta'}
-                    </button>
-                </form>
+                        <div className={styles.campo}>
+                            <label>Contraseña</label>
+                            <input
+                                type="password"
+                                name="contrasena"
+                                placeholder="Contraseña (mín. 6 caracteres)"
+                                value={form.contrasena}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
 
-                <p className={styles.enlace}>
-                    ¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link>
-                </p>
+                        <div className={styles.campo}>
+                            <label>Confirmar contraseña</label>
+                            <input
+                                type="password"
+                                name="confirmar"
+                                placeholder="Confirmar contraseña"
+                                value={form.confirmar}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <button type="submit" className={styles.btn} disabled={cargando}>
+                            {cargando ? 'Creando cuenta...' : 'Registrarse'}
+                        </button>
+                    </form>
+
+                    <p className={styles.enlace}>
+                        ¿Ya tienes cuenta?{' '}
+                        <Link to="/login">Iniciar sesión</Link>
+                    </p>
+                </div>
+
             </div>
         </div>
     );
 };
 
-export default Registro;
+export { Registro };

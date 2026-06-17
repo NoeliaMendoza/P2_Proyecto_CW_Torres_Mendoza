@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
+import { LuSearch } from 'react-icons/lu';
 import styles from './SearchBar.module.css';
 
 const SearchBar = ({ valor, onChange, placeholder }) => {
     return (
         <div className={styles.contenedor}>
-            <span className={styles.icono}></span>
+            <span className={styles.icono}>
+                <LuSearch size={18} />
+            </span>
             <input
                 className={styles.input}
                 type="text"
@@ -25,4 +28,4 @@ SearchBar.propTypes = {
     placeholder: PropTypes.string,
 };
 
-export default SearchBar;
+export { SearchBar };

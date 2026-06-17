@@ -4,7 +4,7 @@ import { useChemical } from '../../context/ChemicalContext';
 import { login } from '../../services/chemistry-service';
 import styles from './Login.module.css';
 
-const Login = () => {
+export const Login = () => {
     const navigate = useNavigate();
     const { iniciarSesion } = useChemical();
     const [form, setForm] = useState({ email: '', contrasena: '' });
@@ -21,10 +21,11 @@ const Login = () => {
         setError('');
         try {
             const res = await login(form);
-            if (res.error) {
-                setError(res.error);
+            if (res.data.error) {
+                setError(res.data.error);
             } else {
-                iniciarSesion(res.usuario);
+                iniciarSesion(res.data.usuario);
+                navigate('/tabla');
             }
         } catch {
             setError('Error al conectar con el servidor');
@@ -36,48 +37,58 @@ const Login = () => {
     return (
         <div className={styles.contenedor}>
             <div className={styles.card}>
-                <div className={styles.icono}></div>
-                <h2>Iniciar Sesión</h2>
-                <p>Accede a tus favoritos e historial</p>
 
-                {error && <div className={styles.error}>{error}</div>}
+                {/* Panel izquierdo — imagen decorativa */}
+                <div className={styles.panelImagen}>
+                    <span className={styles.welcomeText}>Bienvenido</span>
+                </div>
 
-                <form onSubmit={handleSubmit} className={styles.form}>
-                    <div className={styles.campo}>
-                        <label>Correo electrónico</label>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="ejemplo@correo.com"
-                            value={form.email}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
+                {/* Panel derecho — formulario */}
+                <div className={styles.panelForm}>
+                    <h2 className={styles.titulo}>Iniciar sesión</h2>
 
-                    <div className={styles.campo}>
-                        <label>Contraseña</label>
-                        <input
-                            type="password"
-                            name="contrasena"
-                            placeholder="Tu contraseña"
-                            value={form.contrasena}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
+                    {error && <div className={styles.error}>{error}</div>}
 
-                    <button type="submit" className={styles.btn} disabled={cargando}>
-                        {cargando ? 'Ingresando...' : 'Iniciar Sesión'}
-                    </button>
-                </form>
+                    <form onSubmit={handleSubmit} className={styles.form}>
+                        <div className={styles.campo}>
+                            <label>Correo electrónico</label>
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Correo electrónico"
+                                value={form.email}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
 
-                <p className={styles.enlace}>
-                    ¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link>
-                </p>
+                        <div className={styles.filaPassword}>
+                            <div className={styles.campo}>
+                                <label>Contraseña</label>
+                                <input
+                                    type="password"
+                                    name="contrasena"
+                                    placeholder="Contraseña"
+                                    value={form.contrasena}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <button type="submit" className={styles.btn} disabled={cargando}>
+                            {cargando ? 'Ingresando...' : 'Acceder'}
+                        </button>
+                    </form>
+
+                    <p className={styles.enlace}>
+                        ¿No tienes cuenta?{' '}
+                        <Link to="/registro">Regístrate</Link>
+                    </p>
+                </div>
+
             </div>
         </div>
     );
 };
 
-export default Login;

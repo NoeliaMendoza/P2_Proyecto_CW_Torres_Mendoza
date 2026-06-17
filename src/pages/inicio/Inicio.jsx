@@ -1,80 +1,113 @@
 import { useNavigate } from 'react-router-dom';
+import {
+    LuSearch,
+    LuCalculator,
+    LuStar,
+    LuHistory,
+    LuArrowRight,
+    LuAtom,
+} from 'react-icons/lu';
 import styles from './Inicio.module.css';
 
-const Inicio = () => {
+
+const categorias = [
+    { label: 'Metal alcalino', color: '#c0392b' },
+    { label: 'Metal alcalinotérreo', color: '#e67e22' },
+    { label: 'Metal de transición', color: '#097886' },
+    { label: 'Metaloide', color: '#27ae60' },
+    { label: 'No metal', color: '#16a085' },
+    { label: 'Gas noble', color: '#8e44ad' },
+    { label: 'Lantánido', color: '#2980b9' },
+    { label: 'Actínido', color: '#1abc9c' },
+    { label: 'Metal post-transición', color: '#3498db' },
+    { label: 'Halógeno', color: '#e91e8c' },
+];
+
+const funciones = [
+    { Ico: LuSearch, titulo: 'Tabla Periódica', desc: 'Explora los 118 elementos.', ruta: '/tabla' },
+    { Ico: LuCalculator, titulo: 'Calculadora', desc: 'Calcula masas molares.', ruta: '/calculadora' },
+    { Ico: LuStar, titulo: 'Favoritos', desc: 'Consulta tus elementos guardados.', ruta: '/favoritos' },
+    { Ico: LuHistory, titulo: 'Historial', desc: 'Revisa tus búsquedas recientes.', ruta: '/historial' },
+];
+
+
+export const Inicio = () => {
     const navigate = useNavigate();
 
     return (
-        <div className={styles.contenedor}>
-
-            {/* Hero */}
+        <div className={styles.page}>
             <section className={styles.hero}>
-                <div className={styles.heroTexto}>
-                    <h1>Explora la Tabla Periódica</h1>
-                    <p>
-                        Descubre los 118 elementos químicos, consulta sus propiedades,
-                        calcula masas molares y guarda tus elementos favoritos.
+                <div className={styles.heroContent}>
+                    <span className={styles.heroBadge}><LuAtom size={16} /> ChemReact</span>
+                    <h1 className={styles.heroTitle}>Tabla periódica interactiva</h1>
+                    <p className={styles.heroSub}>
+                        Explora elementos, revisa sus propiedades principales,
+                        calcula masas molares y guarda tus favoritos.
                     </p>
-                    <div className={styles.heroBotones}>
-                        <button onClick={() => navigate('/tabla')} className={styles.btnPrimario}>
-                            Ver Tabla Periódica
+                    <div className={styles.heroBtns}>
+                        <button onClick={() => navigate('/tabla')} className={styles.btnP}>
+                            Ver Tabla Periódica <LuArrowRight size={15} />
                         </button>
-                        <button onClick={() => navigate('/calculadora')} className={styles.btnSecundario}>
+                        <button onClick={() => navigate('/calculadora')} className={styles.btnS}>
                             Calculadora Molar
                         </button>
                     </div>
                 </div>
-                <div className={styles.heroIcono}>
-                    <span></span>
+                <div className={styles.heroPanel}>
+                    <LuAtom size={58} strokeWidth={1.4} />
+                    <strong>118</strong>
+                    <span>elementos confirmados</span>
                 </div>
             </section>
 
-            {/* Tarjetas de características */}
-            <section className={styles.caracteristicas}>
-                <h2>¿Qué puedes hacer?</h2>
-                <div className={styles.grid}>
-                    <div className={styles.card}>
-                        <span></span>
-                        <h3>Explorar Elementos</h3>
-                        <p>Consulta propiedades como masa atómica, punto de fusión, ebullición y electronegatividad.</p>
+            <div className={styles.statsGrid}>
+                {[
+                    ['118', 'Elementos confirmados'],
+                    ['94', 'Existen en la naturaleza'],
+                    ['24', 'Creados en laboratorio'],
+                    ['1869', 'Primera tabla de Mendeléyev'],
+                ].map(([v, l]) => (
+                    <div key={l} className={styles.statCard}>
+                        <div className={styles.statVal}>{v}</div>
+                        <div className={styles.statLbl}>{l}</div>
                     </div>
-                    <div className={styles.card}>
-                        <span></span>
-                        <h3>Calcular Masa Molar</h3>
-                        <p>Ingresa una fórmula química como H₂O o NaCl y obtén su masa molar al instante.</p>
-                    </div>
-                    <div className={styles.card}>
-                        <span></span>
-                        <h3>Guardar Favoritos</h3>
-                        <p>Marca los elementos que más te interesan y accede a ellos rápidamente.</p>
-                    </div>
-                    <div className={styles.card}>
-                        <span></span>
-                        <h3>Ver Historial</h3>
-                        <p>Revisa todos los elementos que has consultado en tus sesiones anteriores.</p>
-                    </div>
+                ))}
+            </div>
+
+            <section className={styles.sec}>
+                <div className={styles.secHead}>
+                    <h2 className={styles.secH2}>Accesos rápidos</h2>
+                </div>
+                <div className={styles.funGrid}>
+                    {funciones.map(({ Ico, titulo, desc, ruta }) => (
+                        <button key={titulo} className={styles.funCard} onClick={() => navigate(ruta)}>
+                            <div className={styles.funIcoWrap}>
+                                <Ico size={26} strokeWidth={1.5} />
+                            </div>
+                            <h3 className={styles.funTitulo}>{titulo}</h3>
+                            <p className={styles.funDesc}>{desc}</p>
+                        </button>
+                    ))}
                 </div>
             </section>
 
-            {/* Categorías */}
-            <section className={styles.categorias}>
-                <h2>Categorías de Elementos</h2>
-                <div className={styles.categoriasGrid}>
-                    <span style={{ background: '#ff6b6b' }}>Metal alcalino</span>
-                    <span style={{ background: '#ffa94d' }}>Metal alcalinotérreo</span>
-                    <span style={{ background: '#74c0fc' }}>Metal de transición</span>
-                    <span style={{ background: '#a9e34b' }}>Metaloide</span>
-                    <span style={{ background: '#69db7c' }}>No metal</span>
-                    <span style={{ background: '#cc5de8' }}>Gas noble</span>
-                    <span style={{ background: '#66d9e8' }}>Lantánido</span>
-                    <span style={{ background: '#38d9a9' }}>Actínido</span>
-                    <span style={{ background: '#4dabf7' }}>Metal post-transición</span>
-                    <span style={{ background: '#f783ac' }}>Halógeno</span>
+            <section className={styles.sec}>
+                <div className={styles.secHead}>
+                    <h2 className={styles.secH2}>Categorías de Elementos</h2>
+                </div>
+                <div className={styles.chips}>
+                    {categorias.map((c) => (
+                        <span
+                            key={c.label}
+                            className={styles.chip}
+                            style={{ color: c.color, borderColor: c.color + '55', background: c.color + '11' }}
+                        >
+                            {c.label}
+                        </span>
+                    ))}
                 </div>
             </section>
 
         </div>
     );
 };
-
-export default Inicio;

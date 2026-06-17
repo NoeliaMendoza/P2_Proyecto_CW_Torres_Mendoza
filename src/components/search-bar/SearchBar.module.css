@@ -16,7 +16,10 @@
 }
 
 .icono {
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    color: #888;
+    flex-shrink: 0;
 }
 
 .input {

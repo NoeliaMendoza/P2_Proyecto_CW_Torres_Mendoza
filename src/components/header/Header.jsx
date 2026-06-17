@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { SlChemistry } from 'react-icons/sl';
 import { useChemical } from '../../context/ChemicalContext';
 import styles from './Header.module.css';
 
@@ -14,8 +15,10 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <h1>ChemReact</h1>
-                <span>Tabla Periódica Interactiva</span>
+                <div className={styles.logoBrand}>
+                    <SlChemistry className={styles.logoIcon} />
+                    <h1>ChemTable</h1>
+                </div>
             </div>
 
             <nav className={styles.nav}>
@@ -43,4 +46,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export { Header };

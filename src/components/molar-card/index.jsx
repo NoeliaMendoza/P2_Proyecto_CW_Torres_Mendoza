@@ -1,1 +1,1 @@
-export { default } from './MolarCard';
+export { MolarCard } from './MolarCard';

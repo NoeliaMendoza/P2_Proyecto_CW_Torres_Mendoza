@@ -29,35 +29,45 @@
 .detalle {
     background: white;
     border-radius: 12px;
-    padding: 24px;
+    padding: 14px 16px;
     margin-bottom: 24px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
+    border: 2px solid #097886;
 }
 
 .detallePrincipal {
     display: flex;
-    gap: 32px;
-    align-items: flex-start;
+    gap: 18px;
+    align-items: center;
+}
+
+.detalleVisual {
+    width: 300px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(9, 120, 134, 0.22);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
 }
 
 .detalleSimboloBox {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background: #f0f2f5;
-    border-radius: 10px;
-    padding: 16px 24px;
-    min-width: 100px;
+    min-width: 105px;
+    height: 100%;
 }
 
 .detalleNumero {
-    font-size: 0.85rem;
-    color: #888;
+    font-size: 2rem;
+    color: #097886;
+    margin: 0;
+    font-weight: 700;
+    align-self: flex-start;
 }
 
 .detalleSimbolo {
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: 700;
     color: #1a1a2e;
     line-height: 1;
@@ -65,21 +75,145 @@
 
 .detalleNombre {
     font-size: 0.85rem;
-    color: #555;
+    color: #444;
+    font-weight: 600;
     text-align: center;
-    margin-top: 4px;
+    margin-top: 6px;
+}
+
+.detalleImagenBox {
+    width: 150px;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #e8eef0;
+    flex: 1;
+}
+
+.detalleImagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.detalleImagenFallback {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
 }
 
 .detalleInfo {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px 32px;
+    flex: 1;
+    min-width: 0;
+    max-height: 170px;
+    overflow-y: auto;
+    padding-right: 34px;
 }
 
-.detalleInfo p {
-    font-size: 0.9rem;
+.detalleInfo h2 {
+    margin: 0 0 8px;
+    color: #1a1a2e;
+    font-size: 0.95rem;
+}
+
+.detalleDatosGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    gap: 4px 16px;
+}
+
+.detalleDato {
+    min-width: 0;
+    padding: 4px 0;
+    border-bottom: 1px solid #edf0f2;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.detalleDato > span {
+    display: inline;
+    margin-bottom: 0;
+    color: #097886;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.detalleDato > strong {
+    display: inline;
     color: #444;
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+    text-align: right;
+}
+
+.detalleDato a {
+    color: #e94560;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.detalleDato a:hover {
+    text-decoration: underline;
+}
+
+.detalleResumen {
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid #e4e8ec;
+}
+
+.detalleResumen span {
+    display: block;
+    margin-bottom: 3px;
+    color: #097886;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.detalleResumen p {
     margin: 0;
+    color: #444;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.valorObjeto {
+    display: grid;
+    gap: 6px;
+}
+
+.valorObjetoFila {
+    display: grid;
+    gap: 2px;
+}
+
+.valorObjetoFila span {
+    color: #777;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.valorObjetoFila strong {
+    color: #444;
+    font-size: 0.85rem;
+    font-weight: 500;
+    overflow-wrap: anywhere;
 }
 
 .cerrar {
@@ -103,15 +237,25 @@
 
 /* Tabla */
 .tablaWrapper {
+    width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    padding: 16px;
+    border: 1px solid #e4e8ec;
+    border-radius: 12px;
+    background: #f4f7f8;
+    scrollbar-color: #097886 #eef3f4;
+    scrollbar-width: thin;
 }
 
 .grilla {
+    --element-size: clamp(46px, calc((100vw - 150px) / 18), 66px);
+    --element-gap: 2px;
     display: grid;
-    grid-template-columns: repeat(18, 52px);
-    grid-template-rows: repeat(9, 52px);
-    gap: 3px;
-    min-width: 980px;
+    grid-template-columns: repeat(18, var(--element-size));
+    grid-template-rows: repeat(9, var(--element-size));
+    gap: var(--element-gap);
+    justify-content: center;
 }
 
 /* Resultados búsqueda */
@@ -121,12 +265,14 @@
 
 .gridResultados {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(74px, 86px));
     gap: 12px;
+    justify-content: center;
 }
 
 .cardResultado {
     position: relative;
+    aspect-ratio: 1;
 }
 
 .btnFav {
@@ -148,4 +294,80 @@
     text-align: center;
     color: #888;
     padding: 40px;
+}
+
+@media (max-width: 900px) {
+    .detallePrincipal {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .detalleVisual {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .detalleInfo {
+        max-height: 220px;
+        padding-right: 8px;
+    }
+
+    .detalleDatosGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .tablaWrapper {
+        padding: 12px;
+    }
+
+    .grilla {
+        --element-size: 44px;
+        --element-gap: 8px;
+        justify-content: start;
+    }
+}
+
+@media (max-width: 560px) {
+    .contenedor {
+        padding: 18px 16px;
+    }
+
+    .detalle {
+        top: 72px;
+        padding: 14px;
+    }
+
+    .detalleVisual {
+        width: 100%;
+        max-width: none;
+        flex-direction: column;
+    }
+
+    .detalleImagenBox {
+        width: 100%;
+        height: 150px;
+    }
+
+    .encabezado {
+        align-items: stretch;
+    }
+
+    .encabezado h1 {
+        font-size: 1.45rem;
+    }
+
+    .tablaWrapper {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .grilla {
+        --element-size: 40px;
+        --element-gap: 6px;
+    }
+
+    .gridResultados {
+        grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+        gap: 8px;
+    }
 }

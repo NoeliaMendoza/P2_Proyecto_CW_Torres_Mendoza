@@ -49,4 +49,4 @@ ElementCard.propTypes = {
     onClick: PropTypes.func.isRequired,
 };
 
-export default ElementCard;
+export { ElementCard };

@@ -4,6 +4,11 @@ import { ElementCard, SearchBar } from '../../components';
 import { obtenerElementos, agregarHistorial, agregarFavorito, eliminarFavorito, obtenerFavoritos } from '../../services/chemistry-service';
 import styles from './Tabla.module.css';
 
+const mostrarDato = (valor, unidad = '') => {
+    if (valor === null || valor === undefined || valor === '') return 'N/A';
+    return `${valor}${unidad}`;
+};
+
 const Tabla = () => {
     const { usuario, elementoSeleccionado, setElementoSeleccionado, favoritos, setFavoritos } = useChemical();
     const [elementos, setElementos] = useState([]);
@@ -23,7 +28,7 @@ const Tabla = () => {
         if (usuario) {
             obtenerFavoritos(usuario.id).then(data => setFavoritos(data));
         }
-    }, [usuario]);
+    }, [usuario, setFavoritos]);
 
     const handleClick = async (elemento) => {
         setElementoSeleccionado(elemento);
@@ -64,6 +69,24 @@ const Tabla = () => {
         String(el.number).includes(busqueda)
     );
 
+    const imagenElemento =
+        elementoSeleccionado?.image?.url ||
+        elementoSeleccionado?.bohr_model_image ||
+        elementoSeleccionado?.spectral_img;
+
+    const datosImportantes = elementoSeleccionado
+        ? [
+            ['Categoría', elementoSeleccionado.categoriaES],
+            ['Masa atómica', mostrarDato(elementoSeleccionado.atomic_mass, ' u')],
+            ['Fase', elementoSeleccionado.phase],
+            ['Periodo / Grupo', `${mostrarDato(elementoSeleccionado.period)} / ${mostrarDato(elementoSeleccionado.group)}`],
+            ['Punto de fusión', mostrarDato(elementoSeleccionado.melt, ' K')],
+            ['Punto de ebullición', mostrarDato(elementoSeleccionado.boil, ' K')],
+            ['Electronegatividad', elementoSeleccionado.electronegativity_pauling],
+            ['Configuración electrónica', elementoSeleccionado.electron_configuration],
+        ]
+        : [];
+
     if (cargando) return <div className={styles.cargando}>Cargando elementos...</div>;
 
     return (
@@ -75,22 +98,38 @@ const Tabla = () => {
 
             {/* Panel de detalle */}
             {elementoSeleccionado && (
-                <div className={styles.detalle} style={{ borderLeft: `6px solid #e94560` }}>
+                <div className={styles.detalle}>
                     <div className={styles.detallePrincipal}>
-                        <div className={styles.detalleSimboloBox}>
-                            <span className={styles.detalleNumero}>{elementoSeleccionado.number}</span>
-                            <span className={styles.detalleSimbolo}>{elementoSeleccionado.symbol}</span>
-                            <span className={styles.detalleNombre}>{elementoSeleccionado.nombreES}</span>
+                        <div className={styles.detalleVisual}>
+                            <div className={styles.detalleSimboloBox}>
+                                <span className={styles.detalleNumero}>{elementoSeleccionado.number}</span>
+                                <span className={styles.detalleSimbolo}>{elementoSeleccionado.symbol}</span>
+                                <span className={styles.detalleNombre}>{elementoSeleccionado.nombreES}</span>
+                            </div>
+                            <div className={styles.detalleImagenBox}>
+                                {imagenElemento ? (
+                                    <img
+                                        className={styles.detalleImagen}
+                                        src={imagenElemento}
+                                        alt={`Imagen de ${elementoSeleccionado.nombreES}`}
+                                    />
+                                ) : (
+                                    <div className={styles.detalleImagenFallback}>
+                                        <span>{elementoSeleccionado.symbol}</span>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                         <div className={styles.detalleInfo}>
-                            <p><strong>Categoría:</strong> {elementoSeleccionado.categoriaES}</p>
-                            <p><strong>Masa atómica:</strong> {elementoSeleccionado.atomic_mass} u</p>
-                            <p><strong>Periodo:</strong> {elementoSeleccionado.period} | <strong>Grupo:</strong> {elementoSeleccionado.group || 'N/A'}</p>
-                            <p><strong>Punto de fusión:</strong> {elementoSeleccionado.melt ? `${elementoSeleccionado.melt} K` : 'N/A'}</p>
-                            <p><strong>Punto de ebullición:</strong> {elementoSeleccionado.boil ? `${elementoSeleccionado.boil} K` : 'N/A'}</p>
-                            <p><strong>Densidad:</strong> {elementoSeleccionado.density ? `${elementoSeleccionado.density} g/L` : 'N/A'}</p>
-                            <p><strong>Electronegatividad:</strong> {elementoSeleccionado.electronegativity_pauling || 'N/A'}</p>
-                            <p><strong>Configuración electrónica:</strong> {elementoSeleccionado.electron_configuration}</p>
+                            <h2>Datos importantes</h2>
+                            <div className={styles.detalleDatosGrid}>
+                                {datosImportantes.map(([etiqueta, valor]) => (
+                                    <div key={etiqueta} className={styles.detalleDato}>
+                                        <span>{etiqueta}</span>
+                                        <strong>{mostrarDato(valor)}</strong>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <button className={styles.cerrar} onClick={() => setElementoSeleccionado(null)}>✕ Cerrar</button>
@@ -150,4 +189,4 @@ const Tabla = () => {
     );
 };
 
-export default Tabla;
+export { Tabla };
