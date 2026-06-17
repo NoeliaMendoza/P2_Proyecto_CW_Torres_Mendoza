@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useChemical } from '../../context/ChemicalContext';
 import { login } from '../../services/chemistry-service';
 import styles from './Login.module.css';
 
-export const Login = () => {
+const Login = () => {
     const navigate = useNavigate();
     const { iniciarSesion } = useChemical();
     const [form, setForm] = useState({ email: '', contrasena: '' });
@@ -19,76 +19,73 @@ export const Login = () => {
         e.preventDefault();
         setCargando(true);
         setError('');
+
+        let exito = false;
+
         try {
             const res = await login(form);
-            if (res.data.error) {
-                setError(res.data.error);
+            if (res?.usuario) {
+                iniciarSesion(res.usuario);
+                exito = true;
             } else {
-                iniciarSesion(res.data.usuario);
-                navigate('/tabla');
+                setError(res?.error || 'Credenciales incorrectas');
             }
         } catch {
             setError('Error al conectar con el servidor');
-        } finally {
-            setCargando(false);
+        }
+
+        setCargando(false);
+
+        if (exito) {
+            navigate('/tabla', { replace: true });
         }
     };
 
     return (
         <div className={styles.contenedor}>
             <div className={styles.card}>
+                <div className={styles.icono}>⚗️</div>
+                <h2>Iniciar Sesión</h2>
+                <p>Accede a tus favoritos e historial</p>
 
-                {/* Panel izquierdo — imagen decorativa */}
-                <div className={styles.panelImagen}>
-                    <span className={styles.welcomeText}>Bienvenido</span>
-                </div>
+                {error && <div className={styles.error}>{error}</div>}
 
-                {/* Panel derecho — formulario */}
-                <div className={styles.panelForm}>
-                    <h2 className={styles.titulo}>Iniciar sesión</h2>
+                <form onSubmit={handleSubmit} className={styles.form}>
+                    <div className={styles.campo}>
+                        <label>Correo electrónico</label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="ejemplo@correo.com"
+                            value={form.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
 
-                    {error && <div className={styles.error}>{error}</div>}
+                    <div className={styles.campo}>
+                        <label>Contraseña</label>
+                        <input
+                            type="password"
+                            name="contrasena"
+                            placeholder="Tu contraseña"
+                            value={form.contrasena}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
 
-                    <form onSubmit={handleSubmit} className={styles.form}>
-                        <div className={styles.campo}>
-                            <label>Correo electrónico</label>
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Correo electrónico"
-                                value={form.email}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
+                    <button type="submit" className={styles.btn} disabled={cargando}>
+                        {cargando ? 'Ingresando...' : 'Iniciar Sesión'}
+                    </button>
+                </form>
 
-                        <div className={styles.filaPassword}>
-                            <div className={styles.campo}>
-                                <label>Contraseña</label>
-                                <input
-                                    type="password"
-                                    name="contrasena"
-                                    placeholder="Contraseña"
-                                    value={form.contrasena}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <button type="submit" className={styles.btn} disabled={cargando}>
-                            {cargando ? 'Ingresando...' : 'Acceder'}
-                        </button>
-                    </form>
-
-                    <p className={styles.enlace}>
-                        ¿No tienes cuenta?{' '}
-                        <Link to="/registro">Regístrate</Link>
-                    </p>
-                </div>
-
+                <p className={styles.enlace}>
+                    ¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link>
+                </p>
             </div>
         </div>
     );
 };
 
+export default Login;

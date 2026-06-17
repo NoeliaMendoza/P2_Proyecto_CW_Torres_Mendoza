@@ -14,7 +14,7 @@ const Registro = () => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setError('');
 
@@ -24,22 +24,18 @@ const Registro = () => {
         }
 
         setCargando(true);
-        try {
-            const res = await registro({
-                nombre: form.nombre,
-                email: form.email,
-                contrasena: form.contrasena,
-            });
-            if (res.error) {
-                setError(res.error);
-            } else {
-                navigate('/login');
-            }
-        } catch {
-            setError('Error al conectar con el servidor');
-        } finally {
-            setCargando(false);
-        }
+        const datos = { nombre: form.nombre, email: form.email, contrasena: form.contrasena };
+
+        registro(datos)
+            .then((res) => {
+                if (res.error) {
+                    setError(res.error);
+                } else {
+                    navigate('/login');
+                }
+            })
+            .catch(() => setError('Error al conectar con el servidor'))
+            .finally(() => setCargando(false));
     };
 
     return (

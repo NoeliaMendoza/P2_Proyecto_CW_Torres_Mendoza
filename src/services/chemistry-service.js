@@ -156,7 +156,7 @@ export const obtenerElementos = async () => {
 
 // ── Usuarios ─────────────────────────────────────────────
 export const login = async (form) => {
-    const res = await fetch(`${API_PHP}/usuarios/login.php`, {
+    const res = await fetch(`${API_PHP}/usuarios/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -165,7 +165,7 @@ export const login = async (form) => {
 };
 
 export const registro = async (form) => {
-    const res = await fetch(`${API_PHP}/usuarios/registro.php`, {
+    const res = await fetch(`${API_PHP}/usuarios/registro`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -175,12 +175,12 @@ export const registro = async (form) => {
 
 // ── Favoritos ────────────────────────────────────────────
 export const obtenerFavoritos = async (usuario_id) => {
-    const res = await fetch(`${API_PHP}/favoritos/get.php?usuario_id=${usuario_id}`);
+    const res = await fetch(`${API_PHP}/favoritos/get?usuario_id=${usuario_id}`);
     return res.json();
 };
 
 export const agregarFavorito = async (data) => {
-    const res = await fetch(`${API_PHP}/favoritos/add.php`, {
+    const res = await fetch(`${API_PHP}/favoritos/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -189,7 +189,7 @@ export const agregarFavorito = async (data) => {
 };
 
 export const eliminarFavorito = async (data) => {
-    const res = await fetch(`${API_PHP}/favoritos/delete.php`, {
+    const res = await fetch(`${API_PHP}/favoritos/delete`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -199,12 +199,12 @@ export const eliminarFavorito = async (data) => {
 
 // ── Historial ────────────────────────────────────────────
 export const obtenerHistorial = async (usuario_id) => {
-    const res = await fetch(`${API_PHP}/historial/get.php?usuario_id=${usuario_id}`);
+    const res = await fetch(`${API_PHP}/historial/get?usuario_id=${usuario_id}`);
     return res.json();
 };
 
 export const agregarHistorial = async (data) => {
-    const res = await fetch(`${API_PHP}/historial/add.php`, {
+    const res = await fetch(`${API_PHP}/historial/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -214,12 +214,12 @@ export const agregarHistorial = async (data) => {
 
 // ── Cálculos ─────────────────────────────────────────────
 export const obtenerCalculos = async (usuario_id) => {
-    const res = await fetch(`${API_PHP}/calculos/get.php?usuario_id=${usuario_id}`);
+    const res = await fetch(`${API_PHP}/calculos/get?usuario_id=${usuario_id}`);
     return res.json();
 };
 
 export const guardarCalculo = async (data) => {
-    const res = await fetch(`${API_PHP}/calculos/add.php`, {
+    const res = await fetch(`${API_PHP}/calculos/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
