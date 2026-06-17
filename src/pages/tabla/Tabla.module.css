@@ -371,3 +371,30 @@
         gap: 8px;
     }
 }
+
+.btnFavDetalle {
+    background: #f0f2f5;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #a0aec0;
+    margin: 8px auto 0;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.btnFavDetalle:hover {
+    transform: scale(1.15);
+    background: #eef8f9;
+}
+
+.btnFavDetalle:active {
+    transform: scale(0.95);
+}
+

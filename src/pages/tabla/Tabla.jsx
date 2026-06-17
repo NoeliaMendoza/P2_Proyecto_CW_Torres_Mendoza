@@ -105,6 +105,13 @@ const Tabla = () => {
                                 <span className={styles.detalleNumero}>{elementoSeleccionado.number}</span>
                                 <span className={styles.detalleSimbolo}>{elementoSeleccionado.symbol}</span>
                                 <span className={styles.detalleNombre}>{elementoSeleccionado.nombreES}</span>
+                                <button
+                                    className={`${styles.btnFavDetalle} ${esFavorito(elementoSeleccionado.number) ? styles.favActivo : ''}`}
+                                    onClick={(e) => toggleFavorito(e, elementoSeleccionado)}
+                                    title={esFavorito(elementoSeleccionado.number) ? "Quitar de favoritos" : "Agregar a favoritos"}
+                                >
+                                    {esFavorito(elementoSeleccionado.number) ? '★' : '☆'}
+                                </button>
                             </div>
                             <div className={styles.detalleImagenBox}>
                                 {imagenElemento ? (
