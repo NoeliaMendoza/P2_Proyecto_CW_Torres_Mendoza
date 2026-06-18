@@ -1,0 +1,1 @@
+export { MiembroCard } from './MiembroCard';

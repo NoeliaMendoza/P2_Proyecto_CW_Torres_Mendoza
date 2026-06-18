@@ -1,22 +1,21 @@
 .header {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 32px;
+    padding: 12px 24px;
     background-color: #097886;
     color: white;
     position: sticky;
     top: 0;
     z-index: 100;
-    gap: 12px;
+    gap: 8px;
 }
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    flex: 1 1 220px;
-    min-width: 180px;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .logoBrand {
@@ -43,17 +42,16 @@
 
 .nav {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+    flex-wrap: nowrap;
+    gap: 10px;
     justify-content: center;
-    flex: 2 1 320px;
-    min-width: 180px;
+    flex: 2 1 auto;
 }
 
 .nav a {
     color: white;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     transition: color 0.2s;
     white-space: nowrap;
 }
@@ -65,11 +63,9 @@
 .usuario {
     display: flex;
     align-items: center;
-    gap: 12px;
-    flex: 1 1 220px;
-    min-width: 180px;
+    gap: 8px;
+    flex-shrink: 0;
     justify-content: flex-end;
-    flex-wrap: wrap;
 }
 
 .usuario span {
