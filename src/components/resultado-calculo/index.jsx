@@ -1,0 +1,1 @@
+export { ResultadoCalculo } from './ResultadoCalculo';

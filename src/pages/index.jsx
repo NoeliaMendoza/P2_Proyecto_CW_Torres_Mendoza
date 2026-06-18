@@ -5,3 +5,5 @@ export { Favoritos } from './favoritos';
 export { Historial } from './historial';
 export { Login } from './login';
 export { Registro } from './registro';
+export { Acerca } from './acerca';
+export { Equipo } from './equipo';

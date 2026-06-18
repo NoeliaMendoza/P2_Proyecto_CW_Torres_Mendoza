@@ -1,0 +1,57 @@
+.historialSection {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.historialSection h2 {
+    font-size: 1.1rem;
+    color: #1a1a2e;
+    margin: 0 0 16px;
+}
+
+.historialLista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.historialItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #f0f2f5;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+
+.historialItem:hover {
+    background: #e8eaed;
+}
+
+.historialFormula {
+    background: none;
+    border: none;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+    transition: color 0.2s;
+}
+
+.historialFormula:hover {
+    color: #e94560;
+}
+
+.historialMasa {
+    font-size: 0.85rem;
+    color: #888;
+}

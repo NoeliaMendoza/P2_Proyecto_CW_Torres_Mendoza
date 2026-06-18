@@ -1,0 +1,1 @@
+export { HistorialCalculos } from './HistorialCalculos';

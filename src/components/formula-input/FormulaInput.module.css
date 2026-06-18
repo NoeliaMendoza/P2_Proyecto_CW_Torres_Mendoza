@@ -1,0 +1,99 @@
+.inputSection {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+    color: #1a1a2e;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: #e94560;
+}
+
+.btnCalcular {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.btnCalcular:hover:not(:disabled) {
+    background: #c73652;
+}
+
+.btnCalcular:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btnLimpiar {
+    background: transparent;
+    color: #888;
+    border: 2px solid #e0e0e0;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btnLimpiar:hover {
+    border-color: #e94560;
+    color: #e94560;
+}
+
+.ejemplos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ejemplosLabel {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.btnEjemplo {
+    background: #f0f2f5;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: #1a1a2e;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btnEjemplo:hover {
+    background: #e94560;
+    color: white;
+}

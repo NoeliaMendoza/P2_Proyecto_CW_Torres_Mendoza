@@ -4,3 +4,8 @@ export { Footer } from './footer';
 export { ElementCard } from './element-card';
 export { SearchBar } from './search-bar';
 export { MolarCard } from './molar-card';
+export { InfoCard } from './info-card';
+export { MiembroCard } from './miembro-card';
+export { FormulaInput } from './formula-input';
+export { ResultadoCalculo } from './resultado-calculo';
+export { HistorialCalculos } from './historial-calculos';
