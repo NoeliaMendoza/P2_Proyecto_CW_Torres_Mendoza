@@ -1,0 +1,1 @@
+export { Acerca } from './Acerca';
