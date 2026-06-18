@@ -3,7 +3,7 @@ import { guardarCalculo } from '../services/chemistry-service';
 
 // ── Parser de fórmulas químicas ──────────────────────────────────
 // Soporta: H2O  NaCl  Ca(OH)2  Al2(SO4)3  Mg(NO3)2
-const parsearFormula = (formula) => {
+export const parsearFormula = (formula) => {
     // Tokeniza la fórmula en: símbolo, número, paréntesis
     const tokens = formula.match(/([A-Z][a-z]?|\d+|[()])/g);
     if (!tokens) return null;
