@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { LuLock, LuStar, LuStarOff } from 'react-icons/lu';
 import { useChemical } from '../../context/ChemicalContext';
 import { obtenerFavoritos, eliminarFavorito } from '../../services/chemistry-service';
 import styles from './Favoritos.module.css';
@@ -32,7 +33,7 @@ export const Favoritos = () => {
         return (
             <div className={styles.contenedor}>
                 <div className={styles.sinSesion}>
-                    <span className={styles.icono}>🔒</span>
+                    <span className={styles.icono}><LuLock size={32} /></span>
                     <h2>Acceso restringido</h2>
                     <p>Debes iniciar sesión para ver tus elementos favoritos.</p>
                     <button className={styles.btnPrimario} onClick={() => navigate('/login')}>
@@ -61,7 +62,7 @@ export const Favoritos = () => {
                     <span className={styles.contador}>0 elementos</span>
                 </div>
                 <div className={styles.vacio}>
-                    <span className={styles.icono}>⭐</span>
+                    <span className={styles.icono}><LuStar size={32} /></span>
                     <p>Aún no tienes elementos favoritos.</p>
                     <button className={styles.btnSecundario} onClick={() => navigate('/tabla')}>
                         Explorar la tabla periódica
@@ -119,7 +120,7 @@ const FavoritoItem = ({ item, onEliminar }) => {
                 disabled={eliminando}
                 title="Quitar de favoritos"
             >
-                {eliminando ? '...' : '★'}
+                {eliminando ? '...' : <LuStar size={18} />}
             </button>
         </li>
     );

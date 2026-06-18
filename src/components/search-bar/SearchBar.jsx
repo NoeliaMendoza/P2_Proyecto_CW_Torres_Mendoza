@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { LuSearch } from 'react-icons/lu';
+import { LuSearch, LuX } from 'react-icons/lu';
 import styles from './SearchBar.module.css';
 
 const SearchBar = ({ valor, onChange, placeholder }) => {
@@ -16,7 +16,13 @@ const SearchBar = ({ valor, onChange, placeholder }) => {
                 placeholder={placeholder || 'Buscar elemento...'}
             />
             {valor && (
-                <button className={styles.limpiar} onClick={() => onChange('')}>✕</button>
+                <button
+                    className={styles.limpiar}
+                    onClick={() => onChange('')}
+                    aria-label="Limpiar búsqueda"
+                >
+                    <LuX size={18} />
+                </button>
             )}
         </div>
     );

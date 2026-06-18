@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { LuLock, LuInbox } from 'react-icons/lu';
 import { useChemical } from '../../context/ChemicalContext';
 import { obtenerHistorial } from '../../services/chemistry-service';
 import styles from './Historial.module.css';
@@ -27,7 +28,7 @@ export const Historial = () => {
         return (
             <div className={styles.contenedor}>
                 <div className={styles.sinSesion}>
-                    <span className={styles.icono}>🔒</span>
+                    <span className={styles.icono}><LuLock size={32} /></span>
                     <h2>Acceso restringido</h2>
                     <p>Debes iniciar sesión para ver tu historial de elementos consultados.</p>
                     <button className={styles.btnPrimario} onClick={() => navigate('/login')}>
@@ -56,7 +57,7 @@ export const Historial = () => {
                     <span className={styles.contador}>0 consultas</span>
                 </div>
                 <div className={styles.vacio}>
-                    <span className={styles.icono}>📭</span>
+                    <span className={styles.icono}><LuInbox size={32} /></span>
                     <p>Aún no has consultado ningún elemento.</p>
                     <button className={styles.btnSecundario} onClick={() => navigate('/tabla')}>
                         Explorar la tabla periódica

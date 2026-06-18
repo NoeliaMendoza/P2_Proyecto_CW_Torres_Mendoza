@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { LuStar, LuStarOff, LuX } from 'react-icons/lu';
 import { useChemical } from '../../context/ChemicalContext';
 import { ElementCard, SearchBar } from '../../components';
 import { obtenerElementos, agregarHistorial, agregarFavorito, eliminarFavorito, obtenerFavoritos } from '../../services/chemistry-service';
@@ -110,7 +111,7 @@ const Tabla = () => {
                                     onClick={(e) => toggleFavorito(e, elementoSeleccionado)}
                                     title={esFavorito(elementoSeleccionado.number) ? "Quitar de favoritos" : "Agregar a favoritos"}
                                 >
-                                    {esFavorito(elementoSeleccionado.number) ? '★' : '☆'}
+                                    {esFavorito(elementoSeleccionado.number) ? <LuStar size={18} /> : <LuStarOff size={18} />}
                                 </button>
                             </div>
                             <div className={styles.detalleImagenBox}>
@@ -139,7 +140,9 @@ const Tabla = () => {
                             </div>
                         </div>
                     </div>
-                    <button className={styles.cerrar} onClick={() => setElementoSeleccionado(null)}>✕ Cerrar</button>
+                    <button className={styles.cerrar} onClick={() => setElementoSeleccionado(null)}>
+                        <LuX size={18} /> Cerrar
+                    </button>
                 </div>
             )}
 
@@ -165,8 +168,9 @@ const Tabla = () => {
                                     <button
                                         className={`${styles.btnFav} ${esFavorito(el.number) ? styles.favActivo : ''}`}
                                         onClick={(e) => toggleFavorito(e, el)}
+                                        aria-label={esFavorito(el.number) ? 'Quitar de favoritos' : 'Agregar a favoritos'}
                                     >
-                                        {esFavorito(el.number) ? '★' : '☆'}
+                                        {esFavorito(el.number) ? <LuStar size={18} /> : <LuStarOff size={18} />}
                                     </button>
                                 </div>
                             ))}
